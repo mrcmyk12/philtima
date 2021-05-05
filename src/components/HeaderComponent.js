@@ -8,22 +8,27 @@ function Header(){
     return(
         <Navbar>
         <Nav>
-            <NavItem>
+            <NavItem className='m-2'>
                 <NavLink className='nav_link' to='/home'>Home</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className='m-2'>
                 <NavLink className='nav_link' to='/shopping'>Shopping</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className='m-2'>
                 <NavLink className='nav_link' to='/todo'>To-Do</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className='m-2'>
                 <NavLink className='nav_link' to='/animals'>Animals</NavLink>
             </NavItem>
-            <NavItem>
+            <NavItem className='m-2'>
+                <NavLink className='nav_link' to='/schedule'>Schedule</NavLink>
+            </NavItem>
+            <NavItem className='m-2'>
                 <NavLink className='nav_link' to='/notes'>Notes</NavLink>
             </NavItem>
-            <Button>Log In</Button>
+            <NavItem className='m-2 login_button'>
+                <Button className='login_button'><p className='login_button_text'>Log In</p></Button>
+            </NavItem>
         </Nav>
         </Navbar>
     )

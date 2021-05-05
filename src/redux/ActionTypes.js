@@ -1,0 +1,10 @@
+export const ADD_NOTE = 'ADD_NOTE';
+export const ADD_ITEM = 'ADD_ITEM';
+export const ADD_ANIMAL_NOTE = 'ADD_ANIMAL_NOTE';
+export const ADD_TODO_ITEM = 'ADD_TODO_ITEM';
+export const NOTE_LOADING = 'NOTE_LOADING';
+export const ANIMAL_LOADING = 'ANIMAL_LOADING';
+export const TODO_LOADING = 'TODO_LOADING';
+export const ITEM_LOADING = 'ITEM_LOADING';
+export const ADD_EVENT_TO_SCHEDULE = 'ADD_EVENT_TO_SCHEDULE';
+export const SCHEDULE_LOADING = 'SCHEDULE_LOADING';

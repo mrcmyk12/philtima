@@ -36,3 +36,126 @@
     transform: rotate(360deg);
   }
 }
+
+
+.notes_card{
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  left: 35px;
+  top: 153px;
+  background: #979F86;
+  box-shadow: 6px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 33px;
+}
+
+.notes_card_title{
+  font-family: Sarala;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 38px;
+  color: #0A3D64;
+}
+
+.nav_link{
+width: 238px;
+height: 85px;
+left: 17px;
+top: 26px;
+font-family: Khula;
+font-style: normal;
+font-weight: bold;
+font-size: 25px;
+line-height: 69px;
+color: #0A3D64;
+text-shadow: 3px 4px 7px rgba(0, 0, 0, 0.25);
+}
+
+.notes_page{
+background-color: #979F86;  
+}
+
+.login_button.btn.btn-secondary{
+  width: 100px;
+  height: 50px;
+  left: 1173px;
+  top: 27px;
+  background: #0A3D64;
+  box-shadow: 7px 9px 4px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+
+.login_button_text{
+  font-family: Khula;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  color: #1769A9;
+}
+
+.note_modal_header {
+  height: 12px;
+  font-weight: 600;
+  font-family: Sarala;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  color: #A8B293;
+}
+
+.add_note_button.btn.btn-secondary{
+  width: 162px;
+  height: 62px;
+  left: 921px;
+  top: 760px;
+  background: #A8B293;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;
+}
+
+.add_note_button_text{
+  left: 943px;
+  top: 765px;
+  font-family: Khula;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 61px;
+  color: #FFFFFF;
+}
+
+.note_modal_cancel_button.mx-2.btn.btn-secondary{
+  height: 45px;
+  left: 921px;
+  top: 760px;
+  background: #A8B293;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;  
+}
+
+.note_modal_submit_button.mx-2.btn.btn-secondary{
+  height: 45px;
+  left: 921px;
+  top: 760px;
+  background: white;
+  box-shadow: 8px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  border: none;  
+}
+
+.note_modal_cancel_text{
+  font-family: Khula;
+  font-style: normal;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.note_modal_submit_text{
+  font-family: Khula;
+  font-style: normal;
+  font-weight: bold;
+  color: #A8B293;
+}
+

@@ -1,18 +1,24 @@
 import React, {Component} from 'react';
 
-class Shopping extends Component {
-    constructor (props) {
-        super(props);
-        this.state = {};
-    }
+function Shopping (props) {
 
-    render() {
+        // const grocery = props.shopping.items.map(item => {
+        //     return(
+        //     <div>
+        //         <li>{item}</li>
+        //     </div>
+        //     )
+        // })    
+    
         return(
-            <div>
-                <h4>Shopping</h4>
-            </div>
+            <React.Fragment>
+                <div>
+                    {/* {grocery}                  */}
+                  {props.shopping.shopping.map((shopping) => <div>{shopping.items}</div>)}
+                </div>
+            </React.Fragment>
         )
     }
-}
+
 
 export default Shopping;

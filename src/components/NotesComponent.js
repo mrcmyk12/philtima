@@ -19,7 +19,7 @@ class AddNote extends Component{
     }
 
     handleSubmit(values) {
-        this.props.postNote(values.title, values.content)
+        this.props.postNote(values.id, values.title, values.content)
         this.toggleModal();
     }
 
@@ -74,7 +74,7 @@ class AddNote extends Component{
     }
 }
 
-function RenderNotes({note}){
+function RenderNotes({note, deleteNote}){
 
     
 
@@ -83,7 +83,7 @@ function RenderNotes({note}){
             <div className='notes_card m-2'>
                 <h2 className='notes_card_title'>{note.title}</h2>
                 <p>{note.content}</p>
-                <Button className='note_modal_submit_button mx-2'><p className='note_modal_submit_text'>Delete</p></Button>
+                <Button key={note.id} onClick={deleteNote} className='note_modal_submit_button mx-2'><p className='note_modal_submit_text'>Delete</p></Button>
             </div>
         </div>
         );
@@ -100,7 +100,7 @@ function Notes(props){
         const notes = props.notes.map(note => {
             return(
                 <div key={note.id}>
-                    <RenderNotes note={note} />
+                    <RenderNotes note={note} deleteNote={props.deleteNote}/>
                 </div>
             );
         });

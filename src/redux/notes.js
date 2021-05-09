@@ -1,13 +1,20 @@
-import {NOTES} from '../shared/notes';
 import * as ActionTypes from './ActionTypes';
 
-export const Notes = (state = NOTES, action) => {
-    switch (action.types) {
+export const Notes = (state = {
+    isLoading:true,
+    errMess: null,
+    notes:[]
+}, action) => {
+    switch (action.type) {
+        case ActionTypes.ADD_NOTES:
+            return{...state, isLoading: false, errMess: null, notes: action.payload};
+        case ActionTypes.NOTES_LOADING:
+            return{...state, isLoading: true, errMess: null, notes: []};
+        case ActionTypes.NOTES_FAILED:
+            return{...state, errMess: action.payload};
         case ActionTypes.ADD_NOTE:
             const note = action.payload;
-            note.id = state.length;
-            note.date = new Date().toISOString();
-            return state.concat(note);
+            return{...state, notes: state.notes.concat(note)};
         default:
             return state;
     }

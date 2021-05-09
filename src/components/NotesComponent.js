@@ -3,6 +3,7 @@ import { Card, CardBody, CardText, CardTitle, Modal, ModalBody,
     ModalHeader, Button, Row, Col, Label } from 'reactstrap';
 import CardHeader from 'reactstrap/lib/CardHeader';
 import {LocalForm, Control, Errors} from 'react-redux-form';
+import {Loading} from './LoadingComponent';
 import ModalFooter from 'reactstrap/lib/ModalFooter';
 
 class AddNote extends Component{
@@ -18,7 +19,7 @@ class AddNote extends Component{
     }
 
     handleSubmit(values) {
-        this.props.addNote(values.title, values.content);
+        this.props.postNote(values.title, values.content)
         this.toggleModal();
     }
 
@@ -73,36 +74,71 @@ class AddNote extends Component{
     }
 }
 
-function RenderNotes(props){
+function RenderNotes({note}){
 
-  const note = props.notes.map((notes)=>{
+    
+
         return(
         <div className='col'>
-            <div className='notes_card'>
-                <h2 className='notes_card_title' >{notes.title}</h2>
+            <div className='notes_card m-2'>
+                <h2 className='notes_card_title'>{note.title}</h2>
+                <p>{note.content}</p>
+                <Button className='note_modal_submit_button mx-2'><p className='note_modal_submit_text'>Delete</p></Button>
             </div>
         </div>
         );
-    })
 
-    return(
-        <div className='row'>
-            {note}
-        </div>
-    )
+
+
+    
 }
 
 
 function Notes(props){
-
-
-        return(
-                <div className='container'>
-                    <RenderNotes notes={props.notes} />
-                    <AddNote addNote={props.addNote}/>
-                </div>
-        );
     
+
+        const notes = props.notes.map(note => {
+            return(
+                <div key={note.id}>
+                    <RenderNotes note={note} />
+                </div>
+            );
+        });
+
+    if(props.notes.isLoading) {
+        return(
+            <div className="container">
+                <div className="row">
+                    <Loading />
+                </div>
+            </div>
+        )
+    }
+
+    if(props.notes.errMess){
+        return(
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <h4>{props.notes.errMess}</h4>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    return(
+        <React.Fragment>
+            <div className='container'>
+                <div className='row mb-4'>
+                    <AddNote postNote={props.postNote}/>
+                </div>
+                <div className='row m-3'>
+                    {notes}
+                </div>
+            </div>
+        </React.Fragment>
+    )
 }
 
 export default Notes;

@@ -9,20 +9,25 @@ import Schedule from './ScheduleComponent';
 
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addNote } from '../redux/ActionCreators';
+import {  fetchNotes, postNote } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
         notes: state.notes,
-        shopping: state.shopping
     }
 }
 
 const mapDispatchToProps = {
-    addNote: (id, title, content, date) => (addNote(id, title, content, date))
+    
+    postNote: (id, title, content) => (postNote(id, title, content)),
+    fetchNotes: () => (fetchNotes())
 }
 
 class Main extends Component{
+
+    componentDidMount() {
+        this.props.fetchNotes();
+    }
 
     render() {
         return(
@@ -30,7 +35,10 @@ class Main extends Component{
                 <Header />
                 <Switch> 
                     <Route exact path='/home' component={Home} />
-                    <Route exact path='/notes' render={()=><Notes addNote={this.props.addNote} notes={this.props.notes} />} />
+                    <Route exact path='/notes' render={()=><Notes notes={this.props.notes.notes} 
+                                                                    postNote={this.props.postNote}
+                                                                    isLoading={this.props.notes.isLoading}
+                                                                    notesErrMess={this.props.notes.errMess}/>} />
                     <Route exact path='/shopping' component={Shopping} />
                     <Route exact path='/todo' component={ToDo} />
                     <Route exact path='/animals' component={Animals} />
